@@ -4,12 +4,9 @@
 from Entity import Entity
 
 
-class Char(Entity):
+class Points(Entity):
     def __init__(self):
         pass
 
     def move(self, ):
-        pass
-
-    def attack(self, ):
         pass
