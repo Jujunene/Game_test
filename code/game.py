@@ -3,7 +3,8 @@
 #importando classes e bibliotecas necessarias
 import pygame
 
-from code.const import WINDOW_WIDTH, WINDOW_HEIGHT
+from code.const import WINDOW_WIDTH, WINDOW_HEIGHT, MENU_OPTION
+from code.level import Level
 from code.menu import Menu
 
 
@@ -17,15 +18,17 @@ class Game:
     def run(self, ):
           while True:
             menu = Menu(self.window)    #passando a janela como parametro
-            menu.run()      # para aparecer o menu na tela
-            pass
-            #check for events
-            # for event in pygame.event.get():
-            #     if event.type == pygame.QUIT:
-            #         pygame.quit()  #close window
-            #         exit()    #end pygame
-            #     #fullscreen event (ESC to exit)
-            #     # if event.type == pygame.KEYDOWN:
-            #     #     if event.key == pygame.K_ESCAPE:
-            #     #         exit()
+            menu_return = menu.run()      # para aparecer o menu na tela
 
+            if menu_return in [MENU_OPTION[0], MENU_OPTION[1], MENU_OPTION[2]]:   #vai passar o nivel 1 e depois o level 2
+                level = Level(self.window, 'Level1', menu_return)
+                level_return = level.run()
+
+
+            elif menu_return == MENU_OPTION[3]:
+                pass
+            elif menu_return == MENU_OPTION[4]:
+                pygame.quit()
+                exit()
+            else:
+                pass
