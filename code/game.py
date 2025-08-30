@@ -20,10 +20,13 @@ class Game:
             menu = Menu(self.window)    #passando a janela como parametro
             menu_return = menu.run()      # para aparecer o menu na tela
 
-            if menu_return in [MENU_OPTION[0], MENU_OPTION[1], MENU_OPTION[2]]:   #vai passar o nivel 1 e depois o level 2
+            if menu_return in [MENU_OPTION[0], MENU_OPTION[1]]:   #vai passar o nivel 1 e depois o level 2
                 level = Level(self.window, 'Level1', menu_return)
                 level_return = level.run()
 
+            elif menu_return == MENU_OPTION[2]:
+                level = Level(self.window, 'Level2', menu_return)
+                level_return = level.run()
 
             elif menu_return == MENU_OPTION[3]:
                 pass
